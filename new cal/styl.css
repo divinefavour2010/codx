@@ -1,0 +1,501 @@
+/* =========================
+   GLOBAL + LOGIN/REGISTER STYLES
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'poppins', sans-serif;
+    min-height: 100vh;
+    background: url('https://wallpapers.com/images/hd/2440x1440-desktop-pc-background-wkvl5uwxyeuanzts.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* ---------- Header (Login Page) ---------- */
+header {
+    position: fixed;
+    height: 13vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 2em;
+    color: #fff;
+    user-select: none;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover:after {
+    transform-origin: left;
+    transform: scaleX(1);
+    transition: transform 0.5s;
+}
+
+.navigation .btnlogin-popup{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btnlogin-popup:hover {
+    background: #fff;
+    color: #162938;
+    transition: .3s;
+}
+
+img{
+    background-blend-mode: multiply;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+}
+
+/* ---------- Popup Wrapper ---------- */
+.wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: height .2s ease;
+    z-index: 999;
+}
+
+/* LOGIN FORM */
+.wrapper .form-box.login {
+    position: absolute;
+    width: 100%;
+    padding: 40px;
+    z-index: 3;
+    transition: transform .18s ease, opacity .3s;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.wrapper .form-box.login.active {
+    z-index: 1;
+    opacity: 0;
+    transform: translateX(-400px);
+}
+
+/* REGISTER FORM */
+.wrapper .form-box.register{
+    position: absolute;
+    width: 100%;
+    padding: 40px;
+    opacity: 0;
+    transform: translateX(400px);
+    transition: transform .18s ease, opacity .3s;
+}
+
+.wrapper .form-box.register.active {
+    z-index: 3;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.wrapper .icon-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5em;
+    color: #162938;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+    margin-bottom: 30px;
+    user-select: none;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    color: #162938;
+    font-size: 1em;
+    pointer-events: none;
+    transform: translateY(-50%);
+    font-weight: 500;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+    color: #162938;
+    font-size: 0.8em;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 10px;
+}
+
+.input-box .icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    color: #162938;
+    font-size: 1.2em;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.remember-forgot {
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: #162938;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #162938;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    height: 50px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #fff;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #000000;
+    transition: .3s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.login-register {
+    font-size: 1em;
+    color: #162938;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.login-register p a {
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+}
+.login-register p a:active {
+    transform: scale(0.98);
+}
+
+/* Dark mode toggle button */
+#darkModeToggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #fff;
+    transition: .3s;
+}
+
+#darkModeToggle:hover {
+    background: #fff;
+    color: #162938;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background: #121212 !important;
+    color: #f1f1f1 !important;
+}
+
+body.dark-mode header {
+    background: rgba(18, 18, 18, 0.85);
+    box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+}
+
+body.dark-mode .navigation a,
+body.dark-mode .navigation .btnlogin-popup {
+    color: #f1f1f1;
+    border-color: #f1f1f1;
+}
+
+body.dark-mode .wrapper {
+    border: 2px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(15px);
+}
+
+body.dark-mode .form-box h2,
+body.dark-mode .input-box label,
+body.dark-mode .input-box .icon,
+body.dark-mode .remember-forgot,
+body.dark-mode .login-register {
+    color: #f1f1f1;
+}
+
+
+/* =========================
+   SPLASH SCREEN
+========================= */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0e558b; /* dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+.splash-screen img {
+    width: 180px;
+    height: auto;
+    animation: pop 1.2s ease forwards;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.splash-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* =========================
+   DASHBOARD STYLES
+========================= */
+
+/* Body adjustments for dashboard */
+body.dashboard-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 13vh; /* to offset fixed header */
+    background: url('https://wallpapers.com/images/hd/2440x1440-desktop-pc-background-wkvl5uwxyeuanzts.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+    position: fixed;
+    top: 13vh;
+    left: 0;
+    width: 220px;
+    height: calc(100% - 13vh);
+    background: rgba(22, 41, 56, 0.85);
+    backdrop-filter: blur(15px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    z-index: 98;
+}
+
+.dashboard-sidebar h2 {
+    color: #fff;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+.dashboard-sidebar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.dashboard-sidebar a:hover {
+    background: #162938;
+    color: #fff;
+}
+
+/* Main content */
+.dashboard-main {
+    margin-left: 240px;
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Topbar */
+.dashboard-topbar {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #162938;
+    padding: 15px 20px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Dashboard content cards */
+.dashboard-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.dashboard-card {
+    background: rgba(255,255,255,0.85);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.dashboard-card h3 {
+    margin-bottom: 10px;
+    color: #162938;
+}
+
+.dashboard-card p {
+    color: #162938;
+}
+
+/* Dark mode for dashboard */
+body.dark-mode .dashboard-sidebar {
+    background: rgba(18, 18, 18, 0.85);
+}
+
+body.dark-mode .dashboard-main,
+body.dark-mode .dashboard-topbar,
+body.dark-mode .dashboard-card {
+    background: rgba(18, 18, 18, 0.85);
+    color: #f1f1f1;
+}
+
+body.dark-mode .dashboard-card h3,
+body.dark-mode .dashboard-card p {
+    color: #f1f1f1;
+}

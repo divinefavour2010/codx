@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>website with login</title>
+  <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+
+<div class="splash-screen">
+  <img src="ChatGPT Image Sep 17, 2025, 04_48_26 PM.png" alt="Logo" class="splash-logo">
+</div>
+
+  <header>
+    <h2 class="logo"><img src="PREVIEW-Codex-Horizontal lockup-White-Large.png" alt=""></h2>
+    <nav class="navigation">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+      <button class="btnlogin-popup">Login</button>
+      <button id="darkModeToggle">🌙</button>
+    </nav>
+  </header>
+
+  <!-- Only one wrapper -->
+  <div class="wrapper" style="display: none;">
+    <span class="icon-close">
+      <ion-icon name="close"></ion-icon>
+    </span>
+
+    <!-- Login Form -->
+    <div class="form-box login">
+      <h2>Login</h2>
+      <form action="#">
+        <div class="input-box">
+          <span class="icon"><ion-icon name="mail"></ion-icon></span>
+          <input type="email" required>
+          <label>Email</label>
+        </div>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+          <input type="password" required>
+          <label>Password</label>
+        </div>
+        <div class="remember-forgot">
+          <label><input type="checkbox">Remember me</label>
+          <a href="#">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <div class="login-register">
+          <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Register Form -->
+    <div class="form-box register">
+      <h2>Registration</h2>
+      <form action="#">
+        <div class="input-box">
+          <span class="icon"><ion-icon name="person"></ion-icon></span>
+          <input type="text" required>
+          <label>Username</label>
+        </div>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="mail"></ion-icon></span>
+          <input type="email" required>
+          <label>Email</label>
+        </div>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+          <input type="password" required>
+          <label>Password</label>
+        </div>
+        <div class="remember-forgot">
+          <label><input type="checkbox">I agree to the terms & conditions</label>
+        </div>
+        <button type="submit" class="btn">Register</button>
+        <div class="login-register">
+          <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!-- SPLASH SCRIPT (fixed selector) -->
+  <script>
+    window.addEventListener("load", () => {
+      const splash = document.querySelector(".splash-screen");
+      setTimeout(() => {
+        splash.classList.add("hidden");
+      }, 2500); // disappears after 2.5s
+    });
+
+    // CLOSE LOGIN POPUP
+    document.addEventListener("DOMContentLoaded", () => {
+      const closeBtn = document.querySelector(".icon-close");
+      const wrapper = document.querySelector(".wrapper");
+      if (closeBtn && wrapper) {
+        closeBtn.addEventListener("click", () => {
+          wrapper.style.display = "none";
+        });
+      }
+    });
+  </script>
+</body>
+</html>
